@@ -28,7 +28,7 @@
 		</table>
 		<input type ="submit" value ="edit" name="doThisToTeam">
 		<input type ="submit" value ="delete" name="doThisToTeam">
-		<input type ="submit" value ="add" name="doThisToTeam">
+		<a href = "index.html">Add</a>
 		
 	</form>
 

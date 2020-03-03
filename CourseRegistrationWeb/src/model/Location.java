@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name="location")
+@Table(name="locations")
 public class Location {
 
 	@Id
@@ -23,10 +23,10 @@ public class Location {
 	@Column(name = "STATE")
 	private String state;
 
-	@OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+	@OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
 	@JoinTable(name = "courses_in_location", joinColumns = {
-			@JoinColumn(name = "COURSE_ID", referencedColumnName = "COURSE_ID") }, inverseJoinColumns = {
-					@JoinColumn(name = "ID", referencedColumnName = "ID", unique = true) })
+			@JoinColumn(name = "ID", referencedColumnName = "ID") }, inverseJoinColumns = {
+					@JoinColumn(name = "COURSE_ID", referencedColumnName = "COURSE_ID", unique = true) })
 	private List<CourseDetails> listOfCourses;
 
 	public Location() {
