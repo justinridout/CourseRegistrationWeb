@@ -30,11 +30,12 @@ public class CourseDetailsHelper {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
 		TypedQuery<CourseDetails> typedQuery = em.createQuery(
-				"SELECT cd FROM CourseDetails cd WHERE cd.courseName = : selectedCourse and cd.courseDescription = : selectedDescription",
+				"select cd from CourseDetails cd where cd.courseName=:selectedCourse and cd.courseDescription=:selectedDescription",
 				CourseDetails.class);
 		
 		typedQuery.setParameter("selectedCourse", toDelete.getCourseName());
 		typedQuery.setParameter("selectedDescription", toDelete.getCourseDescription());
+		//typedQuery.setParameter("selectedDate", toDelete.getStartDate());
 		
 		typedQuery.setMaxResults(1);
 		

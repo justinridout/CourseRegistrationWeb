@@ -26,8 +26,8 @@
 				</tr>
 			</c:forEach>
 		</table>
-		<input type ="submit" value ="edit" name="doThisToTeam">
-		<input type ="submit" value ="delete" name="doThisToTeam">
+		<input type ="submit" value ="edit" name="doThisToCourse">
+		<input type ="submit" value ="delete" name="doThisToCourse">
 		<a href = "index.html">Add</a>
 		
 	</form>
