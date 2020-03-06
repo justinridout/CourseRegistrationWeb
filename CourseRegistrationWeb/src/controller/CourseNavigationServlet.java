@@ -40,7 +40,7 @@ public class CourseNavigationServlet extends HttpServlet {
 		LocationHelper lh = new LocationHelper();
 		
 		String action = request.getParameter("doThisToLocation");
-		String path = "/viewAllCoursesServlet";
+		String path = "/viewAllLocationsServlet";
 		
 		if(action.equals("delete")) {
 			try {

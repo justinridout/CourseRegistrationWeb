@@ -27,21 +27,21 @@ public class LocationHelper {
 	public void deleteLocation(Location toDelete) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		/*TypedQuery<Location>*/ Query typedQuery = em.createQuery("DELETE FROM Location lo WHERE lo.locationName = '" + toDelete.getLocationName() + "' and lo.city = '" + toDelete.getCity() + "' and lo.state = '" + toDelete.getState() +"'",
+		TypedQuery<Location> typedQuery = em.createQuery("select lo from Location lo where lo.locationName = :selectedName and lo.city = :selectedCity and lo.state = :selectedState",
 				Location.class);
 		
-		//typedQuery.setParameter("selectedName", toDelete.getLocationName());
-		//typedQuery.setParameter("selectedCity", toDelete.getCity());
-		//typedQuery.setParameter("selectedState", toDelete.getState());
+		typedQuery.setParameter("selectedName", toDelete.getLocationName());
+		typedQuery.setParameter("selectedCity", toDelete.getCity());
+		typedQuery.setParameter("selectedState", toDelete.getState());
 		
 		
-		//typedQuery.setMaxResults(1);
+		typedQuery.setMaxResults(1);
 		
-		//Location result = typedQuery.getResultList();
+		Location result = typedQuery.getSingleResult();
 		
-		//em.remove(result);
-		//em.getTransaction().commit();
-		System.out.println(typedQuery.executeUpdate());
+		em.remove(result);
+		em.getTransaction().commit();
+		
 		em.close();
 	}
 	
